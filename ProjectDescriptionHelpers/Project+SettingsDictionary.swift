@@ -44,6 +44,12 @@ public extension SettingsDictionary {
         self.merging(["DEVELOPMENT_LANGUAGE": SettingValue(stringLiteral: value)])
     }
 
+    /// Allow to launch applications with SwiftUI in third party libs on iOS 12
+    @discardableResult
+    func enableWeakFrameworkSwiftUI() -> SettingsDictionary {
+        self.merging(["OTHER_LDFLAGS" : .array(["$(inherited)", "-weak_framework SwiftUI"])])
+    }
+
 }
 
 public extension String {
