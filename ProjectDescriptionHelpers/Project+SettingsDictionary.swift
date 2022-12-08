@@ -49,6 +49,12 @@ public extension SettingsDictionary {
     func enableWeakFrameworkSwiftUI() -> SettingsDictionary {
         self.merging(["OTHER_LDFLAGS" : .array(["$(inherited)", "-weak_framework SwiftUI"])])
     }
+    
+    /// Add header search pathes
+    @discardableResult
+    func headersSearchPath(_ value: [String]) -> SettingsDictionary {
+        self.merging(["OTHER_LDFLAGS" : .array(["$(inherited)"] + value)])
+    }
 
 }
 
