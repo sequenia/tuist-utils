@@ -50,12 +50,17 @@ public extension SettingsDictionary {
         self.merging(["OTHER_LDFLAGS" : .array(["$(inherited)", "-weak_framework SwiftUI"])])
     }
     
-    /// Add header search pathes
+    /// Add headers search pathes
     @discardableResult
     func headersSearchPath(_ value: [String]) -> SettingsDictionary {
-        self.merging(["OTHER_LDFLAGS" : .array(["$(inherited)"] + value)])
+        self.merging(["HEADER_SEARCH_PATH" : .array(["$(inherited)"] + value)])
     }
-
+    
+    /// Add frameworks search pathes
+    @discardableResult
+    func frameworksSearchPath(_ value: [String]) -> SettingsDictionary {
+        self.merging(["FRAMEWORK_SEARCH_PATHS" : .array(["$(inherited)"] + value)])
+    }
 }
 
 public extension String {
