@@ -53,7 +53,7 @@ public extension SettingsDictionary {
     /// Add headers search pathes
     @discardableResult
     func headersSearchPath(_ value: [String]) -> SettingsDictionary {
-        self.merging(["HEADER_SEARCH_PATH" : .array(["$(inherited)"] + value)])
+        self.merging(["HEADER_SEARCH_PATHS" : .array(["$(inherited)"] + value)])
     }
     
     /// Add frameworks search pathes
